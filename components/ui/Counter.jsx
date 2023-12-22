@@ -10,10 +10,10 @@ const Counter = ({counter, setCounter, max}) => {
 
     return (
         <div className="flex items-center gap-3">
-            <Button onClick={decrease} className= "bg-yellow-500 hover:bg-red-900">-</Button>
-            <p>{counter}</p>
-            <Button onClick={increase} className="bg-green-500 hover:bg-green-700 ">+</Button>
-            <Button onClick={reset} className="bg-gray-600">Reset</Button>
+            <Button onClick={decrease} className= "bg-gray-800 text-gray-300">-</Button>
+            <p className="text-black">{counter}</p>
+            <Button onClick={increase} className="bg-gray-700 text-gray-100 ">+</Button>
+            <Button onClick={reset} className="bg-gray-500">Reset</Button>
         </div>
     )
 }

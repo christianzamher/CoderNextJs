@@ -5,22 +5,38 @@ const ProductosLayout = ({ children }) => {
     <div className="container m-auto">
       <nav className="flex gap-10 py-4 ">
         <Link className="hover:bg-yellow-600 rounded-xl" href={"/products/all"}>
-          Todos
+          All
         </Link>
-        <Link className="hover:bg-yellow-600 rounded-xl" href={"/products/tvs"}>
-          TVs
+        
+        <Link
+          className="hover:bg-yellow-600 rounded-xl"
+          href={"/products/barware"}
+        >
+          Barware
+        </Link>
+        <Link
+          className="hover:bg-yellow-600 rounded-l"
+          href={"/products/cupsmugs"}
+        >
+          Cups & Mugs
+        </Link>
+        <Link className="hover:bg-yellow-600 rounded-xl" href={"/products/allbeds"}>
+          All Beds
+        </Link>
+        <Link className="hover:bg-yellow-600 rounded-xl" href={"/products/loungechairs"}>
+        Lounge Chairs
         </Link>
         <Link
           className="hover:bg-yellow-600 rounded-xl"
-          href={"/products/hornos"}
+          href={"/products/coffetables"}
         >
-          Hornos
+          Coffe Tables
         </Link>
         <Link
           className="hover:bg-yellow-600 rounded-xl"
-          href={"/products/aires"}
+          href={"/products/floorlamps"}
         >
-          Aires
+          Floor Lamps
         </Link>
       </nav>
 

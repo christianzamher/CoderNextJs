@@ -5,6 +5,7 @@ import { CartProvider } from "@/components/context/CartContext";
 //Componentes
 import NavBar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AuthProvider } from "@/components/context/AuthContext";
 
 //metadata renombra el titulo de cada page
 export const metadata = {
@@ -22,14 +23,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-       <CartProvider>
-        <NavBar />
-        {children}
-        <Footer />
-
-       </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
-      
     </html>
   );
 }

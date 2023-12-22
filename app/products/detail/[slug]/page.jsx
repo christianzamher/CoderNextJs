@@ -17,7 +17,7 @@ const Detail = ({ params }) => {
     <div className="container m-auto pt-8">
       <h3 className="text-4xl text-bold py-8">Product Detail</h3>
 
-      <hr />
+      <hr className="py-1" />
 
       <ProductDetail slug={slug} />
     </div>

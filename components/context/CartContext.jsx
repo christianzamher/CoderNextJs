@@ -28,6 +28,14 @@ export const CartProvider = ({children}) => {
         setCart(cart.filter(product => product.title !== title));
       };
 
+    const sortByPrice = (ascending = true) => {
+        setProducts(cart.sort((a, b) => ascending ? a.price - b.price : b.price - a.price));
+       };
+
+    const totalPrice = (item) => {
+        return cart.reduce((acc, item) =>acc + item.quantity * item.price  , 0)
+    }
+
     return (
         <CartContext.Provider value={{
             cart,
@@ -35,7 +43,9 @@ export const CartProvider = ({children}) => {
             isInCart,
             totalQty,
             emptyCart,
-            removeFromCart
+            removeFromCart,
+            sortByPrice,
+            totalPrice
         }}>
             {children}
         </CartContext.Provider>

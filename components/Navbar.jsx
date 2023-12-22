@@ -90,6 +90,7 @@ const NavBar = () => {
                 </svg>
 
                 <span className="absolute top-0 left-0 rounded-full bg-indigo-500 text-white p-1 text-xs"></span>
+                
               </Link>
             </div>
             {/* <div className="flex flex-col md:flex-row md:mx-6">

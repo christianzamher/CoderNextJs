@@ -1,22 +1,21 @@
-"use client"
+"use client";
 
-import CartItem from "@/components/cart/CartItem"
-import { useCartContext } from "@/components/context/CartContext"
+import { useCartContext } from "@/components/context/CartContext";
+
+import CartList from "@/components/cart/CartList";
+import ClientForm from "@/components/cart/ClientForm";
 
 const CartPage = () => {
-    const { cart } = useCartContext()
+  const { cart, totalPrice } = useCartContext();
 
-    return (
-        <main className="container m-auto">
-            <h2 className="text-2xl my-10 border-b pb-4">Your Goals</h2>
+  return (
+    <main className="container m-auto">
+      <h2 className="text-2xl my-10 border-b pb-4">Your Goals</h2>
 
-            <ul>
-                {
-                    cart.map((item) => <CartItem item={item} key={item.slug}/>)
-                }
-            </ul>
-        </main>
-    )
-}
+      <CartList />
+      <ClientForm />
+    </main>
+  );
+};
 
-export default CartPage
+export default CartPage;
