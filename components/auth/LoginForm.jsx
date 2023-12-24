@@ -1,12 +1,13 @@
 "use client"
 import { useState } from "react"
 import Button from "../ui/Buttons"
-import { useAuthContext } from "../context/AuthContext"
-import Notification from "../notification/Notification"
+import { useAuthContext } from "../context/AuthContext" 
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const LoginForm = () => {
-    //const { registerUser, loginUser, googleLogin } = useAuthContext()
-    const { registerUser , loginUser , showMessage} = useAuthContext()
+    const { registerUser, loginUser, googleLogin } = useAuthContext()
+   
     const [values, setValues] = useState({
         email: '',
         password: ''
@@ -50,7 +51,7 @@ const LoginForm = () => {
                 />
                 <Button onClick={() => loginUser(values)} className=" bg-yellow-900 mr-4 text-white">Sign In</Button>
                 <Button onClick={() => registerUser(values)} className=" bg-yellow-900 text-white">Sign Up</Button>
-                <Button onClick={null} className="mt-2 block bg-yellow-900 text-white">SignIn with Google</Button>
+                <Button onClick={() => googleLogin()} className="mt-2 block bg-yellow-900 text-white">Continue with Google</Button>
             </form>
         </div>
     )
