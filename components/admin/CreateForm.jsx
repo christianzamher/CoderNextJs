@@ -49,34 +49,34 @@ const CreateForm = () => {
                     type="text"
                     value={values.slug}
                     required
-                    className="p-2 rounded w-full border border-blue-100 block my-4"
+                    className="p-2 rounded w-full border border-blue-100 block my-4 bg-gray-600"
                     name="slug"
                     onChange={handleChange}
                 />
 
-                <label>Imagen: </label>
+                <label>Image: </label>
                 <input
                     type="file"
                     onChange={(e) => setFile(e.target.files[0])}
-                    className="p-2 rounded w-full border border-blue-100 block my-4"
+                    className="p-2 rounded w-full border border-blue-100 block my-4 bg-gray-600"
                 />
 
-                <label>Nombre: </label>
+                <label>Name: </label>
                 <input
                     type="text"
                     value={values.title}
                     required
-                    className="p-2 rounded w-full border border-blue-100 block my-4"
+                    className="p-2 rounded w-full border border-blue-100 block my-4 bg-gray-600"
                     name="title"
                     onChange={handleChange}
                 />
 
-                <label>Precio: </label>
+                <label>Price: </label>
                 <input
                     type="number"
                     value={values.price}
                     required
-                    className="p-2 rounded w-full border border-blue-100 block my-4"
+                    className="p-2 rounded w-full border border-blue-100 block my-4 bg-gray-600"
                     name="price"
                     onChange={handleChange}
                 />
@@ -86,30 +86,30 @@ const CreateForm = () => {
                     type="number"
                     value={values.inStock}
                     required
-                    className="p-2 rounded w-full border border-blue-100 block my-4"
+                    className="p-2 rounded w-full border border-blue-100 block my-4 bg-gray-600"
                     name="inStock"
                     onChange={handleChange}
                 />
 
-                <label>Categoria: </label>
+                <label>Category: </label>
                 <input
                     type="text"
                     value={values.type}
                     required
-                    className="p-2 rounded w-full border border-blue-100 block my-4"
+                    className="p-2 rounded w-full border border-blue-100 block my-4 bg-gray-600"
                     name="type"
                     onChange={handleChange}
                 />
 
-                <label>Descripción: </label>
+                <label>Description: </label>
                 <textarea
                     value={values.description}
-                    className="resize-none w-full h-24 p-2 rounded border block border-blue-100 my-4"
+                    className="resize-none w-full h-24 p-2 rounded border block border-blue-100 my-4 bg-gray-600"
                     name="description"
                     onChange={handleChange}
                 />
 
-                <Button type="submit" className="bg-gray-500 text-gray-50 rounded-md">Enviar</Button>
+                <Button type="submit"  className="bg-gray-500 text-gray-50 rounded-md">Send</Button>
             </form>
         </div>
     )

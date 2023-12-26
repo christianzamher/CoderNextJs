@@ -1,6 +1,5 @@
 import Button from "../ui/Buttons";
 import Image from "next/image";
-import Link from "next/link";
 import { useCartContext } from "../context/CartContext";
 
 const CartItem = ({ item }) => {

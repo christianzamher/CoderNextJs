@@ -1,77 +1,104 @@
-import Link from "next/link"
-import Image from "next/image"
+"use client";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { db } from "@/firebase/config";
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 
+const ProductsTable = () => {
+  const [items, setItems] = useState([]);
 
-const ProductsTable = async () => {
-    const items = await fetch(`http://localhost:3000/api/products/all`, {
-        cache: 'no-store',
-    }).then(r => r.json())
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const querySnapshot = await getDocs(collection(db, "products"));
+      const products = querySnapshot.docs.map((doc) => doc.data());
+      setItems(products);
+    };
 
-    return (
-        <>
-       
-           <Link
-                href={"/admin/create"}
-                className="rounded bg-blue-600 p-2 text-white"
-            >
-                Crear nuevo
-            </Link> 
-            <div className="overflow-x-auto">
+    fetchProducts();
+  }, []);
 
-                <table className="w-full text-xs text-left text-white-600">
-                    <thead className="text-xs text-gray-200 uppercase">
-                        <tr>
-                            <th scope="col" className="px-3 py-2">Nombre</th>
-                            <th scope="col" className="px-3 py-2">Precio</th>
-                            <th scope="col" className="px-3 py-2">En stock</th>
-                            <th scope="col" className="px-3 py-2">Tipo</th>
-                            <th scope="col" className="px-3 py-2">Imagen</th>
-                            <th scope="col" className="px-3 py-2">Slug</th>
-                            <th scope="col" className="px-3 py-2">Descripción</th>
-                            <th scope="col" className="px-3 py-2">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            items.map((item) => (
-                                <tr key={item.slug}>
-                                    <td className="p-2">{item.title}</td>
-                                    <td className="p-2">{item.price}</td>
-                                    <td className="p-2">{item.inStock}</td>
-                                    <td className="p-2">{item.type}</td>
-                                    <td className="p-2">
-                                         <Image
-                                            src={`/imgs/products/${item.image}`}
-                                            alt={item.title}
-                                            width={80}
-                                            height={80}
-                                        /> 
-                                    </td>
-                                    <td className="p-2">{item.slug}</td>
-                                    <td className="p-2 truncate max-w-prose">{item.description}</td>
-                                    <td className="p-2">
-                                        <Link
-                                            href={`/admin/edit/${item.slug}`}
-                                            className="rounded bg-green-400 p-2 text-white"
-                                        >
-                                            Editar
-                                        </Link>
+  const deleteItem = async (slug) => {
+    try {
+      // Obtener la referencia al documento que se desea eliminar
+      const docRef = doc(db, "products", slug);
 
-                                        <Link
-                                            href={`/admin/delete/${item.slug}`}
-                                            className="rounded bg-red-400 p-2 text-white"
-                                        >
-                                            Eliminar
-                                        </Link>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
+      // Eliminar el documento de Firestore
+      await deleteDoc(docRef);
+
+      // Actualizar el estado de los items eliminando el elemento correspondiente
+      setItems((prevItems) => prevItems.filter((item) => item.slug !== slug));
+    } catch (error) {
+      console.error("Error to delete document:", error);
+    }
+  };
+
+  return (
+    <div className="container m-auto">
+      <Link
+        href={"/admin/create"}
+        className="rounded bg-blue-600 p-2 text-white transition transform hover:-translate-y-0.5"
+      >
+        Add Product
+      </Link>
+      <div className="flex flex-col align-middle justify-center">
+        {items?.map((item, i) => (
+          <div
+            key={i}
+            className="flex flex-col align-top justify-start p-4 border-2 border-yellow-200 rounded-md my-2 hover:bg-gray-600"
+          >
+            <p>
+              <strong>Image:</strong>
+              <Image
+                src={`/imgs/products/${item?.image}`}
+                alt={item?.title}
+                width={80}
+                height={80}
+              />
+            </p>
+            <p>
+              <strong>Title:</strong> {item?.title}
+            </p>
+            <p>
+              {" "}
+              <strong>Description:</strong> {item?.description}
+            </p>
+            <p>
+              {" "}
+              <strong>Stock:</strong> {item?.inStock}
+            </p>
+            <p>
+              {" "}
+              <strong>Price:</strong> {item?.price}
+            </p>
+            <p>
+              {" "}
+              <strong>Slug:</strong> {item?.slug}
+            </p>
+
+            <p>
+              {" "}
+              <strong>Type:</strong> {item?.type}
+            </p>
+            <div className="flex align-middle justify-start my-4">
+              <Link
+                href={`/admin/edit/${item?.slug}`}
+                className=" bg-green-400 rounded p-2 text-white mr-2 transition transform hover:-translate-y-0.5"
+              >
+                Edit
+              </Link>
+              <button
+                onClick={() => deleteItem(item?.slug)}
+                className=" bg-red-600 rounded p-2 text-white mr-2 transition transform hover:-translate-y-0.5"
+              >
+                Delete
+              </button>
             </div>
-        </>
-    )
-}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default ProductsTable
+export default ProductsTable;
