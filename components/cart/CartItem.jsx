@@ -16,7 +16,7 @@ const CartItem = ({ item }) => {
         />
         <div>
           <h3>{item.title}</h3>
-          <p className="text-sm font-semibold">${item.price * item.quantity}</p>
+          <p className="text-sm font-semibold">${totalPrice()}</p>
           <p className="text-sm">Quantity: {item.quantity}</p>
         </div>
 

@@ -3,9 +3,13 @@ import Link from "next/link";
 import MenuList from "./MenuList";
 import { useState } from "react";
 import Image from "next/image";
+import { useCartContext } from "./context/CartContext";
 
-const NavBar = () => {
+const NavBar = ({item}) => {
   const [open, setOpen] = useState(false);
+  const { totalQty } = useCartContext();
+
+
 
   const handleMenu = () => {
     setOpen(!open);
@@ -14,8 +18,8 @@ const NavBar = () => {
   return (
     <>
       <nav className="bg-yellow-700">
-        <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
-          <div className="flex justify-between items-center">
+        <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center ">
+          <div className="flex justify-between items-center ">
             <div>
               <Link
                 className="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700"
@@ -41,35 +45,35 @@ const NavBar = () => {
             </div>
           </div>
 
-          <div className="md:flex items-center">
-            <div className="flex flex-col md:flex-row md:mx-6">
+          <div className="md:flex items-center ">
+            <div className="flex flex-col md:flex-row md:mx-6 ">
               <Link
-                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0"
+                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0 transition transform hover:-translate-y-0.5"
                 href="/"
               >
                 Home
               </Link>
               <Link
-                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0"
+                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0 transition transform hover:-translate-y-0.5"
                 href="/products/all"
               >
                 Shop
               </Link>
               <Link
-                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0"
+                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0 transition transform hover:-translate-y-0.5"
                 href="/contact"
               >
                 Contact
               </Link>
               <Link
-                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0"
+                className="my-1 text-sm text-white font-medium hover:text-gray-800 md:mx-4 md:my-0 transition transform hover:-translate-y-0.5"
                 href="/about"
               >
                 About
               </Link>
             </div>
 
-            <div className="flex justify-center md:block">
+            <div className="flex justify-center md:block transition transform hover:-translate-y-0.5">
               <Link
                 className="relative text-gray-700 hover:text-gray-600"
                 href="/cart"
@@ -89,16 +93,11 @@ const NavBar = () => {
                   />
                 </svg>
 
-                <span className="absolute top-0 left-0 rounded-full bg-indigo-500 text-white p-1 text-xs"></span>
-                
+                <span className="absolute -top-2 -left-4 rounded-full bg-red-900 text-white p-1 text-xs ">{totalQty()}</span>
+              
               </Link>
             </div>
-            {/* <div className="flex flex-col md:flex-row md:mx-6">
-      <Link className="relative text-gray-700 hover:text-gray-600" href="/admin"> Admin
-      
-      </Link>
-      </div> */}
-
+           
             <MenuList open={open} setOpen={setOpen} />
             
 

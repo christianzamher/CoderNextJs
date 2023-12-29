@@ -36,6 +36,19 @@ export const CartProvider = ({children}) => {
         return cart.reduce((acc, item) =>acc + item.quantity * item.price  , 0)
     }
 
+
+    // const lessStock = (item)=>{
+    //     if(item.stock > 0){
+    //         let newItem= { ...item};
+    //         newItem.quantity--;
+    //         if(newItem.quantity===0){
+    //             alert("This product has been removed from your cart as it is out of stock")
+    //             removeFromCart(item.title);
+    //             }
+                        
+                       
+    // }
+
     return (
         <CartContext.Provider value={{
             cart,
@@ -45,7 +58,8 @@ export const CartProvider = ({children}) => {
             emptyCart,
             removeFromCart,
             sortByPrice,
-            totalPrice
+            totalPrice, 
+           
         }}>
             {children}
         </CartContext.Provider>

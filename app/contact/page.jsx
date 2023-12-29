@@ -3,7 +3,7 @@ import React from "react";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata = {
-  title: "My App - Contact Page",
+  title: "Home Depotify - Contact Page",
   description: "Talk to us, we can help you",
 };
 

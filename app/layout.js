@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Raleway } from "next/font/google";
 import { CartProvider } from "@/components/context/CartContext";
+import Link from "next/link";
 
 //Componentes
 import NavBar from "@/components/Navbar";
@@ -22,6 +23,7 @@ const roboto = Raleway({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+  
       <body className={roboto.className}>
         <AuthProvider>
           <CartProvider>

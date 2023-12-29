@@ -1,11 +1,15 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { mockData } from "@/data/product";
 import QtySelector from "./QuantitySelector";
 import React from "react";
+import { CartProvider, useCartContext } from "../context/CartContext";
 
 const ProductDetail = async ({ slug }) => {
-  //const item = mockData.find( (prod)=> prod.slug ===  slug )
+
+  const {lessStock} = useCartContext()
+  
 
   const item = await fetch(`http://localhost:3000/api/productos/${slug}`, {
     cache: "no-store",
@@ -65,7 +69,7 @@ const ProductDetail = async ({ slug }) => {
                   </span>
                   <span className="text-gray-800 dark:text-gray-300 bg-yellow-700 rounded">
                     {" "}
-                    {item.inStock}
+                    {item.inStock }
                   </span>
                 </div>
               </div>

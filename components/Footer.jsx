@@ -35,9 +35,7 @@ const Footer = () => {
           <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
             <div className="mx-auto max-w-sm lg:max-w-none">
               <p className="mt-4 text-center text-gray-400 lg:text-left lg:text-lg">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Praesentium natus quod eveniet aut perferendis distinctio iusto
-                repudiandae, provident velit earum?
+              Sign up for the latest news, facts, analysis, and original stories about HOMEDEPOTIFY delivered to you.
               </p>
 
               <div className="mt-6 flex justify-center gap-4 lg:justify-start">
@@ -89,7 +87,7 @@ const Footer = () => {
 
                 <Link
                   className="text-gray-500 transition hover:text-gray-700"
-                  href=""
+                  href="https://github.com/christianzamher"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -162,7 +160,7 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-gray-500 transition hover:text-gray-700"
-                      href="/"
+                      href="/about"
                     >
                       About
                     </Link>
@@ -189,7 +187,7 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-gray-500 transition hover:text-gray-700"
-                      href="/"
+                      href="/about"
                     >
                       Our Team
                     </Link>
@@ -234,21 +232,21 @@ const Footer = () => {
 
           <div className="mt-16 border-t border-gray-100 pt-8">
             <p className="text-center text-xs/relaxed text-gray-500">
-              © Company 2022. All rights reserved.
+              © Company 2023. All rights reserved.
               <br />
               Created with
               <Link
                 href=""
                 className="text-gray-500 underline transition hover:text-gray-700"
               >
-                Laravel
+                -Next.JS-
               </Link>
               and
               <Link
                 href=""
                 className="text-gray-500 underline transition hover:text-gray-700"
               >
-                Laravel Livewire
+                -Vercel-
               </Link>
               .
             </p>

@@ -35,11 +35,10 @@ const ProductsTable = () => {
 
   return (
     <div className="container m-auto">
-      <Link
-        href={"/admin/create"}
-        className="rounded bg-blue-600 p-2 text-white transition transform hover:-translate-y-0.5"
-      >
-        Add Product
+      <Link href={"/admin/create"}>
+        <button className="rounded bg-blue-600 p-2 text-white transition transform hover:-translate-y-0.5">
+          Add Product
+        </button>
       </Link>
       <div className="flex flex-col align-middle justify-center">
         {items?.map((item, i) => (
@@ -69,7 +68,7 @@ const ProductsTable = () => {
             </p>
             <p>
               {" "}
-              <strong>Price:</strong> {item?.price}
+              <strong>Price:</strong> $ {item?.price}
             </p>
             <p>
               {" "}

@@ -58,21 +58,35 @@ const ClientForm = () => {
         process.env.EMAIL_JS_USER
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        ({ status }) => {
+          if (status === 200) {
+            setFormSubmitted({
+              title: "Message has been sent",
+              paragraph: "Shopping succesfully.",
+            });
+          } else {
+            setFormSubmitted({
+              title:
+                "Unexpected status code returned from EmailJS, try again later",
+              paragraph:
+                "Please contact HomeDepotify either by phone or email.",
+            });
+          }
         },
-        (error) => {
-          console.log(error.text);
+        (err) => {
+          console.log(err);
+          setFormSubmitted({
+            title: "Error sending message, try again later",
+            paragraph: "Please contact HomeDepotify either by phone or email.",
+          });
         }
       );
   };
-
   return (
     <form onSubmit={handleSubmit} ref={form} className="my-12 text-gray-700">
       <label>Name:</label>
       <input
         type="name"
-        
         required
         placeholder="Name"
         className="p-2 rounded w-1/2 border border-blue-100 block my-4 text-gray-700"
@@ -83,31 +97,29 @@ const ClientForm = () => {
       <input
         type="subject"
         name="user_subject"
-        
         required
         placeholder="subject"
         className="p-2 rounded w-1/2 border border-blue-100 block my-4"
-       
         onChange={handleChange}
       />
       <label>E-Mail</label>
       <input
         type="email"
-        
         required
         placeholder="Email"
         className="p-2 rounded w-1/2 border border-blue-100 block my-4"
         name="user_email"
         onChange={handleChange}
       />
-
-      <Button
-        onClick={() => emptyCart()}
-        type="submit"
-        className="block rounded-l bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
-      >
-        Check Out
-      </Button>
+      <Link href={"/checkout"}>
+        <Button
+          onClick={() => emptyCart()}
+          type="submit"
+          className="rounded-2xl    text-center block rounded-l bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+        >
+          Check Out
+        </Button>
+      </Link>
 
       <Link
         href="/products/all"

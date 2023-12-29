@@ -39,7 +39,7 @@ const LoginForm = () => {
         </div>
 
         <div
-          className="bg-white w-full md:max-w-md lg:max-w-full  md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+          className="bg-gray-400 w-full md:max-w-md lg:max-w-full  md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center"
         >
           <div className="w-full h-100">
@@ -102,39 +102,39 @@ const LoginForm = () => {
 
             <button
               type="button"
-              className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
+              className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300 transition transform hover:-translate-y-0.5"
               onClick={() => googleLogin()}
             >
-              <div className="flex items-center justify-center">
+              <div className="flex items-center text-center justify-center transition transform hover:-translate-y-0.5">
                 <Image
                   src={
                     "https://tailus.io/sources/blocks/social/preview/images/google.svg"
                   }
-                  alt=""
-                  className="w-6 h-6 hover:bg-gray-100 text-indigo-500 border border-transparent hover:border-transparent hover:text-gray-700   font-medium transition transform hover:-translate-y-0.5"
+                  alt="google"
+                  className="w-6 h-6 hover:bg-gray-100 text-indigo-500 border border-transparent hover:border-transparent hover:text-gray-700   font-medium "
                   viewBox="0 0 48 48"
                   width={200}
                   height={300}
                 />
 
-                <span className="ml-4  hover:bg-gray-100 text-indigo-500 border border-transparent hover:border-transparent hover:text-gray-700 font-medium transition transform hover:-translate-y-0.5">
+                <span className="ml-4  hover:bg-gray-100 text-indigo-500 border border-transparent hover:border-transparent hover:text-gray-700 font-medium ">
                   Log in with Google
                 </span>
               </div>
             </button>
 
-            <p className="mt-8">
+            <p className="mt-8 text-slate-800 justify-center transition transform hover:-translate-y-0.5">
               Need an account?{" "}
               <Link
                 href="#"
-                className="text-gray-900  hover:text-blue-700 font-semibold hover:bg-gray-100 border border-transparent hover:border-transparent  transition transform hover:-translate-y-0.5"
+                className="text-gray-900  hover:text-yellow-700 font-semibold  border-transparent hover:border-transparent  "
                 onClick={() => registerUser(values)}
               >
                 Create account
               </Link>
             </p>
-            <div className="mt-5 flex text-center text-sm text-gray-400">
-              <p>
+            <div className="mt-5 flex  text-sm text-gray-800 justify-center">
+              <p className="text-center">
                 This site is protected by reCAPTCHA and the Google <br />
                 <Link className="underline" href="#">
                   Privacy Policy

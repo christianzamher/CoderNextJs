@@ -4,7 +4,7 @@ import ProductCard from "@/components/products/ProductCard";
 
 export const generateMetadata = async ({ params }) => {
   return {
-    title: "My App - " + params.categories,
+    title: "Home Depotify - " + params.categories,
   };
 };
 

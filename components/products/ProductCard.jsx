@@ -6,7 +6,7 @@ const ProductCard = ({ item }) => {
     
 
     <Link href={`/products/detail/${item.slug}`}>
-      <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-3xl w-96">
+      <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-3xl w-96 transition transform hover:-translate-y-0.5">
         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
           <Image
             alt={item.title}

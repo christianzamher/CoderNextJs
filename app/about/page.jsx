@@ -3,8 +3,8 @@ import React from 'react'
 
 
 export const metadata = {
-  title:'My App - About us ',
-  description: "Learn more about the team behind MyApp"
+  title:'Home Depotify - About us ',
+  description: "Learn more about the team behind Home Depotify"
 }
 
 const About = () => {
