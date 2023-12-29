@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const ContactForm = () => {
+const ContactForm = () => { 
   
   const [value , setValue] = useState({
     email : '',
@@ -20,7 +20,7 @@ const ContactForm = () => {
 
   const HandleSubmit = async (e)=>{
     e.preventDefault()
-    await fetch('http://localhost:3000/api/contact',{
+    await fetch('https://${process.env.VERCEL_URL}/api/contact',{
         method:'POST',
         body:JSON.stringify(value)
     })

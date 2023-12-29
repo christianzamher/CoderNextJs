@@ -1,17 +1,17 @@
-"use client"
+
 import Image from "next/image";
 import Link from "next/link";
-import { mockData } from "@/data/product";
+//import { mockData } from "@/data/product";
 import QtySelector from "./QuantitySelector";
 import React from "react";
-import { CartProvider, useCartContext } from "../context/CartContext";
+
 
 const ProductDetail = async ({ slug }) => {
 
-  const {lessStock} = useCartContext()
+  
   
 
-  const item = await fetch(`http://localhost:3000/api/productos/${slug}`, {
+  const item = await fetch(`http://${process.env.VERCEL_URL}/api/productos/${slug}`, {
     cache: "no-store",
   }).then((res) => res.json());
 
