@@ -8,10 +8,10 @@ import React from "react";
 
 const ProductDetail = async ({ slug }) => {
 
-  
+   
   
 
-  const item = await fetch(`https://${process.env.VERCEL_URL}/api/productos/${slug}`, {
+  const item = await fetch(`https://${process.env.NEXT_PUBLIC_URL}/api/productos/${slug}`, {
     cache: "no-store",
   }).then((res) => res.json());
 

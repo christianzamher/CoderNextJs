@@ -29,7 +29,7 @@ const Products = async ({ params }) => {
   const { categories } = params;
 
   const items = await fetch(
-    `https://${process.env.VERCEL_URL}/api/products/${categories}`,
+    `https://${process.env.NEXT_PUBLIC_URL}/api/products/${categories}`,
     { cache: "no-store" }
   ).then((r) => r.json());
 

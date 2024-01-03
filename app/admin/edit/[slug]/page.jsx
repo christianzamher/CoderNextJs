@@ -2,7 +2,7 @@ import EditForm from "@/components/admin/EditForm"
 
 const EditPage = async ({params}) => {
     const { slug } = params
-   const item = await fetch(`http://localhost:3000/api/productos/${slug}`, {
+   const item = await fetch(`https://${process.env.NEXT_PUBLIC_URL}/api/productos/${slug}`, {
         cache: 'no-store'
     }).then(res => res.json())
 
