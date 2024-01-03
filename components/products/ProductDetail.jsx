@@ -11,7 +11,7 @@ const ProductDetail = async ({ slug }) => {
   
   
 
-  const item = await fetch(`http://${process.env.VERCEL_URL}/api/productos/${slug}`, {
+  const item = await fetch(`https://${process.env.VERCEL_URL}/api/productos/${slug}`, {
     cache: "no-store",
   }).then((res) => res.json());
 
