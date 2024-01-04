@@ -29,7 +29,7 @@ const NavBar = ({item}) => {
               </Link>
             </div>
 
-            <div className="flex md:hidden">
+            {/* <div className="flex md:hidden">
               <button
                 type="button"
                 className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
@@ -42,7 +42,7 @@ const NavBar = ({item}) => {
                   ></path>
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="md:flex items-center ">

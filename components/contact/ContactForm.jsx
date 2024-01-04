@@ -20,7 +20,7 @@ const ContactForm = () => {
 
   const HandleSubmit = async (e)=>{
     e.preventDefault()
-    await fetch('https://${process.env.NEXT_PUBLIC_URL}/api/contact',{
+    await fetch('http://${process.env.NEXT_PUBLIC_URL}/api/contact',{
         method:'POST',
         body:JSON.stringify(value)
     })
@@ -29,7 +29,7 @@ const ContactForm = () => {
   
     return (
     <>
-        <form onSubmit={HandleSubmit} className="flex justify-center items-center w-screen h-screen bg-gray-600">
+        <form onSubmit={HandleSubmit} className="flex justify-center items-center w-screen  bg-gray-600">
 	
 	<div className="container mx-auto my-4 px-4 lg:px-20">
 
