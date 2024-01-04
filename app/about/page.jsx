@@ -480,7 +480,7 @@ const About = () => {
           <div className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-yellow-600 rounded-xl">
             <Image
               className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-              src="/imgs/aboutmembers/emma.avif"
+              src="/imgs/aboutMembers/emma.avif"
               alt=""
               width={200}
               height={200}
