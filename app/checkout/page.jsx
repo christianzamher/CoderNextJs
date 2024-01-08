@@ -2,11 +2,10 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-
 export const metadata = {
-  title:'HomeDepotify - Goodbye blue Sky ',
-  description: "See you soon!"
-}
+  title: "HomeDepotify - Goodbye blue Sky ",
+  description: "See you soon!",
+};
 const CheckOut = () => {
   return (
     <>
@@ -48,9 +47,16 @@ const CheckOut = () => {
               </span>
             </h2>
             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+              Thank you for your recent purchase from [HomeDepotify]. We're
+              so glad you found what you were looking for! We know you have a
+              lot of choices when it comes to a product or a service, and we're
+              grateful that you chose [Us]. We're committed to
+              providing our customers with the best possible experience, and we
+              hope you'll be happy with your purchase. Your order will be
+              shipped within [7] business days. You'll receive a tracking
+              number when your order ships. In the meantime, please let us know
+              if you have any questions or concerns. We're always happy to help.
+              Thanks again for your business! Sincerely, [HomeDepotify]
             </p>
             <div className="flex items-center">
               <Link
@@ -59,13 +65,7 @@ const CheckOut = () => {
               >
                 Get started
               </Link>
-              <Link
-                href="/"
-                aria-label=""
-                className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
-              >
-                Learn more
-              </Link>
+             
             </div>
           </div>
         </div>

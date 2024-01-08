@@ -34,7 +34,7 @@ const Products = async ({ params }) => {
   return (
     <>
       <div className="container m-auto pt-8">
-        <h2 className="text-4xl text-bold">Products</h2>
+        <h2 className=" text-bold block  text-xl font-bold text-gray-200 sm:text-3xl">Products</h2>
         <hr className="py-1" />
 
         <section className="flex justify-center items-center gap-10 flex-wrap">
