@@ -132,7 +132,7 @@ const EditForm = ({ item }) => {
           href={"/admin"}
         >
         
-        <Button className="w-full block bg-gray-500 hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300" type="submit">Enviar</Button>
+        <Button className="w-full block bg-gray-500 hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300" type="submit">Send</Button>
         </Link>
       </form>
     </div>

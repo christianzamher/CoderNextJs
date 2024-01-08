@@ -5,6 +5,7 @@ import Button from "../ui/Buttons"
 import { doc, setDoc } from "firebase/firestore"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import { db, storage } from "@/firebase/config"
+import { useRouter } from "next/navigation"
 
 const createProduct = async (values, file) => {
     const storageRef = ref(storage, values.slug)
@@ -15,7 +16,7 @@ const createProduct = async (values, file) => {
     return setDoc(docRef, {
         ...values,
         image: fileURL
-    }).then(() => console.log("Producto creado exitosamente"))
+    }).then(() => console.log("Product succesfully charged"))
 }
 
 const CreateForm = () => {
@@ -28,6 +29,7 @@ const CreateForm = () => {
         slug: '' 
     })
     const [file, setFile] = useState(null)
+    const router = useRouter()
 
     const handleChange = (e) => {
         setValues({
@@ -109,7 +111,8 @@ const CreateForm = () => {
                     onChange={handleChange}
                 />
 
-                <Button type="submit"  className="bg-gray-500 text-gray-50 rounded-md">Send</Button>
+                <Button onClick={() => router.back()} type="submit"  className="bg-gray-500 text-gray-50 rounded-md">Send</Button>
+                
             </form>
         </div>
     )
