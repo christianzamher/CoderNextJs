@@ -1,20 +1,59 @@
-
+"use client"
 import Image from "next/image";
+import { useState , useEffect } from "react";
 import Link from "next/link";
-//import { mockData } from "@/data/product";
+import { usePathname } from 'next/navigation'
 import QtySelector from "./QuantitySelector";
 import React from "react";
+import {  getDoc , doc } from "firebase/firestore"
+import { db } from "@/firebase/config";
+import path from 'path';
 
 
-const ProductDetail = async ({ slug }) => {
 
-   //http://${process.env.NEXT_PUBLIC_URL}
-   //http://localhost:3000
-  
 
-  const item = await fetch(`http://${process.env.NEXT_PUBLIC_URL}/api/productos/${slug}`, {
-    cache: "no-store",
-  }).then((res) => res.json());
+const ProductDetail = ({ slug }) => {
+  const pathname = usePathname();
+  const currentFolder = path.basename(pathname);
+
+  const [product, setProduct] = useState({
+    title: "",
+    description: "",
+    image: "",
+    inStock: null,
+    price: null,
+    slug: "",
+    type:""
+  });
+
+  const getProductDetails = async () => {
+    try {
+      const productRef = doc(db, 'products', currentFolder);
+      const docSnapshot = await getDoc(productRef);
+      const productData = docSnapshot.data();
+      if (productData) {
+        setProduct({
+          title: productData.title,
+          description: productData.description,
+          image: productData.image,
+          inStock: productData.inStock,
+          price: productData.price,
+          slug: productData.slug,
+          type: productData.type
+        });
+      }
+    } catch (error) {
+      console.error('Error al obtener los detalles del producto:', error);
+      toast.error('Error al obtener los detalles del producto');
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getProductDetails();
+    };
+    fetchData();
+  }, [currentFolder]);
 
   return (
     <>
@@ -24,10 +63,11 @@ const ProductDetail = async ({ slug }) => {
             <div className="md:flex-1 px-4">
               <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                 <Image
-                  src={`/imgs/products/${item.image}`}
-                  alt={item.title}
+                  src={`/imgs/products/${product.image}`}
+                  alt={product.title}
                   width={500}
                   height={300}
+                  layout="responsive"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -35,9 +75,9 @@ const ProductDetail = async ({ slug }) => {
                 <div className="w-1/2 px-2">
                   <Link
                     className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
-                    href={`/products/${item.type}`}
+                    href={`${product.type}`}
                   >
-                    More {item.type}
+                    More {product.type}
                   </Link>
                 </div>
                 <div className="w-1/2 px-2">
@@ -52,7 +92,7 @@ const ProductDetail = async ({ slug }) => {
             </div>
             <div className="md:flex-1 px-4">
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                {item.title}
+                {product.title}
               </h2>
 
               <div className="flex mb-4">
@@ -61,7 +101,7 @@ const ProductDetail = async ({ slug }) => {
                     Price:{" "}
                   </span>
                   <span className="text-gray-600 dark:text-gray-300">
-                    $ {item.price}
+                    $ {product.price}
                   </span>
                 </div>
                 <div>
@@ -70,7 +110,7 @@ const ProductDetail = async ({ slug }) => {
                   </span>
                   <span className="text-gray-800 dark:text-gray-300 bg-yellow-700 rounded">
                     {" "}
-                    {item.inStock }
+                    {product.inStock}
                   </span>
                 </div>
               </div>
@@ -80,10 +120,10 @@ const ProductDetail = async ({ slug }) => {
                   Product Description:
                 </span>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                  {item.description}
+                  {product.description}
                 </p>
               </div>
-              <QtySelector item={item} />
+               <QtySelector item={product} /> 
             </div>
           </div>
         </div>
@@ -93,3 +133,14 @@ const ProductDetail = async ({ slug }) => {
 };
 
 export default ProductDetail;
+
+
+//http://${process.env.NEXT_PUBLIC_URL}
+  //http://localhost:3000
+
+  // const product = await fetch(
+  //   `http://${process.env.NEXT_PUBLIC_URL}/api/productos/${slug}`,
+  //   {
+  //     cache: "no-store",
+  //   }
+  // ).then((res) => res.json()); 

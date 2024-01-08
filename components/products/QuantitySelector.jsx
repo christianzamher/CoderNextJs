@@ -8,6 +8,7 @@ import Link from "next/link";
 const QtySelector = ({ item }) => {
   const { addToCart, isInCart } = useCartContext();
   const [quantity, setQuantity] = useState(1);
+  console.log(item);
 
   const handleAdd = () => {
     addToCart({
