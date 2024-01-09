@@ -1,16 +1,13 @@
-"use client"
+"use client";
 import Image from "next/image";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import QtySelector from "./QuantitySelector";
 import React from "react";
-import {  getDoc , doc } from "firebase/firestore"
+import { getDoc, doc } from "firebase/firestore";
 import { db } from "@/firebase/config";
-import path from 'path';
-
-
-
+import path from "path";
 
 const ProductDetail = ({ slug }) => {
   const pathname = usePathname();
@@ -23,12 +20,12 @@ const ProductDetail = ({ slug }) => {
     inStock: null,
     price: null,
     slug: "",
-    type:""
+    type: "",
   });
 
   const getProductDetails = async () => {
     try {
-      const productRef = doc(db, 'products', currentFolder);
+      const productRef = doc(db, "products", currentFolder);
       const docSnapshot = await getDoc(productRef);
       const productData = docSnapshot.data();
       if (productData) {
@@ -39,21 +36,17 @@ const ProductDetail = ({ slug }) => {
           inStock: productData.inStock,
           price: productData.price,
           slug: productData.slug,
-          type: productData.type
+          type: productData.type,
         });
       }
     } catch (error) {
-      console.error('Error al obtener los detalles del producto:', error);
-      toast.error('Error al obtener los detalles del producto');
+      console.error("Failed to get product details:", error);
     }
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      await getProductDetails();
-    };
-    fetchData();
-  }, [currentFolder]);
+    getProductDetails();
+  });
 
   return (
     <>
@@ -123,7 +116,7 @@ const ProductDetail = ({ slug }) => {
                   {product.description}
                 </p>
               </div>
-               <QtySelector item={product} /> 
+              <QtySelector item={product} />
             </div>
           </div>
         </div>
@@ -134,13 +127,12 @@ const ProductDetail = ({ slug }) => {
 
 export default ProductDetail;
 
-
 //http://${process.env.NEXT_PUBLIC_URL}
-  //http://localhost:3000
+//http://localhost:3000
 
-  // const product = await fetch(
-  //   `http://${process.env.NEXT_PUBLIC_URL}/api/productos/${slug}`,
-  //   {
-  //     cache: "no-store",
-  //   }
-  // ).then((res) => res.json()); 
+// const product = await fetch(
+//   `http://${process.env.NEXT_PUBLIC_URL}/api/productos/${slug}`,
+//   {
+//     cache: "no-store",
+//   }
+// ).then((res) => res.json());

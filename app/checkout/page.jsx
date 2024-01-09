@@ -47,15 +47,15 @@ const CheckOut = () => {
               </span>
             </h2>
             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-              Thank you for your recent purchase from [HomeDepotify]. We're
+              Thank you for your recent purchase from [HomeDepotify]. We are
               so glad you found what you were looking for! We know you have a
-              lot of choices when it comes to a product or a service, and we're
-              grateful that you chose [Us]. We're committed to
+              lot of choices when it comes to a product or a service, and we are
+              grateful that you chose [Us]. We are committed to
               providing our customers with the best possible experience, and we
-              hope you'll be happy with your purchase. Your order will be
-              shipped within [7] business days. You'll receive a tracking
+              hope you will be happy with your purchase. Your order will be
+              shipped within 7 business days. You will receive a tracking
               number when your order ships. In the meantime, please let us know
-              if you have any questions or concerns. We're always happy to help.
+              if you have any questions or concerns. We are always happy to help.
               Thanks again for your business! Sincerely, [HomeDepotify]
             </p>
             <div className="flex items-center">

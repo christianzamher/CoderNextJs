@@ -1,16 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   /*  images:{
+     images:{
         remotePatterns:[
             {
-                protocol:"https",
-                hostname:"",
-                pathname:"",
-                queryParams:["image"],
-                port:""
-            }
+        protocol: 'https',
+        hostname: 'www.ulcdn.net',
+        port: '',
+        pathname: '/account123/**',
+      }
         ]
-    } */
+    } 
    
 }
 
