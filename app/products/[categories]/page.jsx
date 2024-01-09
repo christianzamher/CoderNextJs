@@ -1,7 +1,5 @@
-
 import React from "react";
 
-import ProductCard from "@/components/products/ProductCard";
 import { Suspense } from "react";
 import ProductList from "@/components/products/ProductList";
 
@@ -13,28 +11,15 @@ export const generateMetadata = async ({ params }) => {
 
 export const revalidate = 3600;
 
-export async function generateStaticParams() {
-  return [ 
-    { categoria: "all" },
-    { categoria: "tvs" },
-    { categoria: "heladeras" },
-    { categoria: "aires" },
-    { categoria: "All Beds" },
-    { categoria: "Lounge Chairs" },
-    { categoria: "Coffee Tables" },
-    { categoria: "Floor Lamps" },
-    { categoria: "Cups & Mugs" },
-    { categoria: "Barware" },
-  ];
-}
-
 const Products = async ({ params }) => {
   const { categories } = params;
 
   return (
     <>
-      <div className="container m-auto pt-8">
-        <h2 className=" text-bold block  text-xl font-bold text-gray-200 sm:text-3xl">Products</h2>
+      <div className="container m-auto pt-8 ">
+        <h2 className=" text-bold block  text-xl font-bold text-gray-200 sm:text-3xl">
+          Products
+        </h2>
         <hr className="py-1" />
 
         <section className="flex justify-center items-center gap-10 flex-wrap">

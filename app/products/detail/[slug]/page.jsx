@@ -1,5 +1,3 @@
-import Image from "next/image";
-//import { mockData } from "@/data/product";
 import ProductDetail from "@/components/products/ProductDetail";
 
 export async function generateMetadata({ params }) {
@@ -14,7 +12,7 @@ const Detail = ({ params }) => {
   const { slug } = params;
 
   return (
-    <div className="container m-auto pt-8">
+    <div className="container m-auto pt-8 p-2">
       <h3 className="text-4xl text-bold py-8">Product Detail</h3>
 
       <hr className="py-1" />

@@ -46,7 +46,7 @@ const ProductDetail = ({ slug }) => {
 
   useEffect(() => {
     getProductDetails();
-  });
+  },[]);
 
   return (
     <>
@@ -60,7 +60,6 @@ const ProductDetail = ({ slug }) => {
                   alt={product.title}
                   width={500}
                   height={300}
-                  layout="responsive"
                   className="w-full h-full object-cover"
                 />
               </div>
