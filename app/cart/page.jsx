@@ -10,7 +10,7 @@ const CartPage = () => {
 
   return (
     <main className="container m-auto">
-      <h2 className="text-2xl my-10 border-b pb-4">Your Goals</h2>
+      <h2 className="text-2xl my-10 border-b pb-4 text-bold block   font-bold text-gray-200 sm:text-3xl">Your Goals</h2>
 
       <CartList />
       <ClientForm />
