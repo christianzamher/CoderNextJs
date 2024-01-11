@@ -52,10 +52,9 @@ const ClientForm = () => {
 
     emailjs
       .sendForm(
-        process.env.EMAIL_JS_SERVICE,
-        process.env.EMAIL_JS_TEMPLATE,
-        form.current,
-        process.env.EMAIL_JS_USER
+        EMAIL_JS_SERVICE = service_1nntz4p,
+        EMAIL_JS_TEMPLATE = template_893vr4b,
+        EMAIL_JS_USER = MaVK8MhkEQzwLAX1k
       )
       .then(
         ({ status }) => {
@@ -114,6 +113,7 @@ const ClientForm = () => {
       <Link href={"/checkout"}>
         <Button
           onClick={() => emptyCart()}
+          required
           type="submit"
           className="rounded-2xl    text-center block rounded-l bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
         >

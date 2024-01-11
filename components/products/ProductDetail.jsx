@@ -46,7 +46,7 @@ const ProductDetail = ({ slug }) => {
 
   useEffect(() => {
     getProductDetails();
-  },[]);
+  });
 
   return (
     <>
